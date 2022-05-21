@@ -2,20 +2,29 @@ const  Ship = (length)=>{
     
     let shipLength = length;
     let shipCordinates = new Array(length);
+    shipCordinates.fill("")
     
-    const hit = (index)=>{}
+
+    const checkforHits = (currentValue)=> {
+        return currentValue == "hit"
+    }
+
+    const hit = (index)=>{
+        shipCordinates[index] = "hit"
+    }
 
     const isSunk = ()=>{
-        return false
+        let result =  shipCordinates.every(checkforHits)
+        return result
     }
-    
     
     return{
         hit,
         isSunk,
-        placeShip,
-        shipLength
+        shipLength,
+        shipCordinates
     }
 }
+
 
 export default Ship

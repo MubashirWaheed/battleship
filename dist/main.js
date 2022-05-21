@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/Factories/gameboard.js":
+/*!************************************!*\
+  !*** ./src/Factories/gameboard.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst Gameboard = ()=>{\n\n    // initialize board \n    const createBoard = ()=>{\n        for(let x=0; x < 10; x++){\n\n        }\n    }\n\n    //  let say I get xPos= 0 and yPos= 3\n    const placeShip = (xPos, yPos, ship)=>{\n        console.log(ship);\n        \n    }\n\n    const receiveAttack = ()=>{\n\n    }\n\n\n    return {\n        receiveAttack,\n        placeShip\n    }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Gameboard);\n\n//# sourceURL=webpack://battleship/./src/Factories/gameboard.js?");
+
+/***/ }),
+
 /***/ "./src/Factories/ship.js":
 /*!*******************************!*\
   !*** ./src/Factories/ship.js ***!
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst  Ship = (length)=>{\n    \n    let shipLength = length;\n    let shipCordinates = new Array(length);\n    \n    const hit = (index)=>{}\n\n    const isSunk = ()=>{\n        return false\n    }\n    \n    \n    return{\n        hit,\n        isSunk,\n        placeShip,\n        shipLength\n    }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ship);\n\n//# sourceURL=webpack://battleship/./src/Factories/ship.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst  Ship = (length)=>{\n    \n    let shipLength = length;\n    let shipCordinates = new Array(length);\n    shipCordinates.fill(\"\")\n    \n\n    const checkforHits = (currentValue)=> {\n        return currentValue == \"hit\"\n    }\n\n    const hit = (index)=>{\n        shipCordinates[index] = \"hit\"\n    }\n\n    const isSunk = ()=>{\n        let result =  shipCordinates.every(checkforHits)\n        return result\n    }\n    \n    return{\n        hit,\n        isSunk,\n        shipLength,\n        shipCordinates\n    }\n}\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ship);\n\n//# sourceURL=webpack://battleship/./src/Factories/ship.js?");
 
 /***/ }),
 
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Factories_ship__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Factories/ship */ \"./src/Factories/ship.js\");\n\n\n//# sourceURL=webpack://battleship/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Factories_ship__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Factories/ship */ \"./src/Factories/ship.js\");\n/* harmony import */ var _Factories_gameboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Factories/gameboard */ \"./src/Factories/gameboard.js\");\n\n\n\nconst cruiser = (0,_Factories_ship__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(2);\nconst destroyer = (0,_Factories_ship__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(3)\nconst carrier = (0,_Factories_ship__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(4);\n\nconst playerBoard = (0,_Factories_gameboard__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\nconst AI = (0,_Factories_gameboard__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\nplayerBoard.placeShip(0,0, cruiser)\n\n//# sourceURL=webpack://battleship/./src/index.js?");
 
 /***/ })
 
