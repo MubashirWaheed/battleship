@@ -9,6 +9,7 @@ const  Ship = (length)=>{
         return currentValue == "hit"
     }
 
+    //div index form which ship was dragged
     const hit = (index)=>{
         shipCordinates[index] = "hit"
     }

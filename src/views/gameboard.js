@@ -1,1 +1,1 @@
-//  TO create teh gameboaids using the JS
+// dynamically create the gameboard 

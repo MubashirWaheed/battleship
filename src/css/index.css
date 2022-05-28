@@ -1,0 +1,33 @@
+.row{
+    display: flex;
+}
+.cell{
+    background-color: lightblue;
+    width: 32px;
+    height: 32px;
+    border: 1px solid black;
+    user-select: none;
+    position: relative;
+}
+.cell:hover{
+    background-color: rgb(103, 143, 157);
+    cursor: pointer;
+}
+.ship{
+    z-index: 2;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: move;
+}
+.ship>div{
+
+    background-color: rgb(255, 221, 226);
+    border: 1px solid black;
+    width: 32px;
+    height: 32px;
+}
+.drag-over {
+    border: dashed 3px red;
+}
