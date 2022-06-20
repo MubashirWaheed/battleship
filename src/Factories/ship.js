@@ -1,21 +1,23 @@
 const  Ship = (length)=>{
-    
+
     let shipLength = length;
-    let shipCordinates = new Array(length);
-    shipCordinates.fill("")
+    let shipArray = new Array(length);
+    shipArray.fill("")
     
-
-    const checkforHits = (currentValue)=> {
-        return currentValue == "hit"
+    const hit = (hitIndex)=>{
+        if(shipArray[hitIndex] == "hit") return false
+        shipArray[hitIndex] = "hit"
     }
 
-    //div index form which ship was dragged
-    const hit = (index)=>{
-        shipCordinates[index] = "hit"
-    }
-
+    // checks if ship sunk
+    // returns true if ship sunk 
     const isSunk = ()=>{
-        let result =  shipCordinates.every(checkforHits)
+        
+        const checkforHits = (currentValue)=> {
+            return currentValue == "hit"
+        }
+
+        let result =  shipArray.every(checkforHits)
         return result
     }
     
@@ -23,9 +25,8 @@ const  Ship = (length)=>{
         hit,
         isSunk,
         shipLength,
-        shipCordinates
+        shipArray
     }
 }
-
 
 export default Ship
