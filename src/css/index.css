@@ -1,7 +1,18 @@
-.row{
+main{
     display: flex;
 }
-.cell{
+.board{
+    margin: 10px;   
+    border: 1px solid red;
+}
+.bot-board,.p1-board{
+    margin: 10px;   
+    border: 1px solid red;
+}
+.row,.p1-row{
+    display: flex;
+}
+.bot-cell,.p1-cell{
     background-color: lightblue;
     width: 32px;
     height: 32px;
@@ -9,25 +20,23 @@
     user-select: none;
     position: relative;
 }
+.hit{
+    background-color: red;
+}
+.miss{
+    background-color: pink;
+}
 .cell:hover{
     background-color: rgb(103, 143, 157);
     cursor: pointer;
 }
 .ship{
-    z-index: 2;
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: move;
+    background-color: black;
 }
-.ship>div{
 
-    background-color: rgb(255, 221, 226);
-    border: 1px solid black;
-    width: 32px;
-    height: 32px;
-}
 .drag-over {
     border: dashed 3px red;
+}
+.res{
+    background-color: rebeccapurple;
 }

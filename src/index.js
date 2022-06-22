@@ -1,47 +1,16 @@
-import Ship from "./Factories/ship";
-import Gameboard from "./Factories/gameboard";
-// import createBoardUI from "./views/gameboard";
+import Player from './Factories/player'
+import { renderBoards, renderButton } from './views/dom';
+
 import './css/index.css'
-import { dragEnter, dragLeave, drop, dragOver  } from "./helper/drag";
+const game = ()=>{
+    const p1 = Player();
+    const bot = Player();
+    // ships should be automactically placed for bot
+    // I have ot add these ship to the bot baord 
+    bot.randomFleet()
+    console.log('bot board',bot.board.board)
+    renderBoards(p1, bot)
+    renderButton(p1)
+}
 
-// Implementing drag and drop 
-let shipIndex;
-let position 
-const ship = document.querySelector('.ship');
-const main = document.getElementById('main')
-const cells = document.querySelectorAll('.cell');
-
-ship.addEventListener("dragstart",(e)=>{
-    e.dataTransfer.setData('text/plain',e.target.id);
-});
-
-ship.addEventListener("mousedown", (e)=>{
-    shipIndex = e.target.dataset.index    
-})
-
-main.addEventListener("dragenter",dragEnter)
-main.addEventListener("dragover",dragOver)
-main.addEventListener('dragleave',dragLeave)
-main.addEventListener('drop',(e)=>{
-    position = drop(e,shipIndex)
-    console.log("position id:",position)
-})
-
-cells.forEach(cell=>{
-    cell.addEventListener("click",(e)=>{
-        if(e.target.parentNode.classList.contains("ship")){
-            console.log('cell clicked:',e.target.parentNode.parentNode.dataset.ypos)
-            console.log('index of ship',e.target.dataset.index)
-        }else{
-            console.log(e.target.dataset.ypos)
-        }
-    })
-})
-
-//  Object instanciating 
-const cruiser = Ship(2);
-const carrier = Ship(4);
-
-const playerBoard = Gameboard();
-playerBoard.receiveAttack()
-// playerBoard.placeShip(0,1, cruiser)
+game()
